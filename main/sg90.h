@@ -48,41 +48,9 @@ class claw
   claw(int servopin)
   {
     clawpin = servopin;
-  }
-  
-  
-  
-  /*
-	Active claw with desire pin. which must be called immediately when this class is used
-  */
-  void init()
-  {
     servo.attach(clawpin);
   }
   
-  
-  
-  
-  /*
-	signal the claw to open
-  */
-  void letgo()
-  {                           
-          servo.write(180);                                   
-         delay(50);
-  }
-  
-  
-  
-  /*
-	signal for the claw to grab
-  */
-  void grab()
-  {                               
-          servo.write(80);                
-         delay(50);
-  }
-
   
    /*
 	 receive data from bluetooth device and decide what to do.
@@ -91,8 +59,14 @@ class claw
   void whentograb(char char_data)
   {
     switch(char_data){
-      case 'G': grab();break;
-      case 'N': letgo();break;
+      case 'G':
+      servo.write(80);                
+      delay(50);
+      break;
+      case 'N':          
+      servo.write(180);                                   
+      delay(50);
+      break;
     }
   }
 };

@@ -1,4 +1,4 @@
-/*{motor. This is the class that allow arduino to interact with l293d to control the dc motor used}
+/*{l293d. This is the class that allow arduino to interact with l293d to control the dc motor used}
     Copyright (C) {2017}  {XSTREAM17}
 
     This program is free software: you can redistribute it and/or modify
@@ -21,16 +21,11 @@
 		pin1 to pin4 is the pin number where your l293d connected to arduino
 	
 	B) AVAILABLE FUNCTION (FUNCTION PROTOCOL);
-		void forward(void);
-		void backward(void);
-		void left(void);
-		void right(void);
-		void zzz(void);
 		void control(char char_data);
 */
 
 
-class motor
+class l293d
 {
    /******************
    * INITIALIZATION *
@@ -43,73 +38,10 @@ class motor
   int driver2Pin;
   int driver3Pin;
   int driver4Pin;
-
-  // function that used to move the robot forward
-  void forward()
-	  {
-		digitalWrite(driver1Pin, HIGH);  
-		digitalWrite(driver2Pin, LOW);
-		digitalWrite(driver3Pin, HIGH);
-		digitalWrite(driver4Pin, LOW);
-		delay(50);
-	  }
-
-	 
-	// function that used to move the robot backward
-    void backward()
-	  {
-		digitalWrite(driver1Pin, LOW);  
-		digitalWrite(driver2Pin, HIGH);
-		digitalWrite(driver3Pin, LOW);
-		digitalWrite(driver4Pin, HIGH);
-		delay(50);
-	  }
-	  
-	  
-	  
-	// function that used to move the robot left side
-    void left()
-	  {
-		digitalWrite(driver1Pin, HIGH);  
-		digitalWrite(driver2Pin, LOW);
-		digitalWrite(driver3Pin, LOW);
-		digitalWrite(driver4Pin, HIGH);
-		delay(50); 
-	  }
-	  
-	  
-	  
-	// function that used to move the robot right side
-    void right()
-	  {
-		digitalWrite(driver1Pin, LOW);  
-		digitalWrite(driver2Pin, HIGH);
-		digitalWrite(driver3Pin, HIGH);
-		digitalWrite(driver4Pin, LOW);
-		delay(50); 
-	  }
-	  
-	  
-	// function that used to stop the motor from turning
-	void zzz()
-	  {
-		digitalWrite(driver1Pin, LOW);
-		digitalWrite(driver2Pin, LOW);
-		digitalWrite(driver3Pin, LOW);
-		digitalWrite(driver4Pin, LOW);
-		delay(50);
-	  }
-
-	  
 	  
 	//Public function used for object declaration
-	motor(int pin1, int pin2, int pin3, int pin4)
+	l293d(int pin1, int pin2, int pin3, int pin4) : driver1Pin(pin1) ,driver2Pin(pin2) , driver3Pin(pin3), driver4Pin(pin4) 
 	  {
-		Serial.begin(9600);
-		driver1Pin = pin1;
-		driver2Pin = pin2;
-		driver3Pin = pin3;
-		driver4Pin = pin4;
 		pinMode(driver1Pin, OUTPUT);
 		pinMode(driver2Pin, OUTPUT);
 		pinMode(driver3Pin, OUTPUT);
@@ -122,20 +54,40 @@ class motor
   void control(char char_data)    //controlling the motor
   {
     switch(char_data){
-    case 'F':
-    forward();
+    case 'F':                     //Forward
+    digitalWrite(driver1Pin, HIGH);  
+    digitalWrite(driver2Pin, LOW);
+    digitalWrite(driver3Pin, HIGH);
+    digitalWrite(driver4Pin, LOW);
+    delay(50);
     break;
-    case 'B':
-    backward();
+    case 'B':                     //Backward
+    digitalWrite(driver1Pin, LOW);  
+    digitalWrite(driver2Pin, HIGH);
+    digitalWrite(driver3Pin, LOW);
+    digitalWrite(driver4Pin, HIGH);
+    delay(50);
     break;
-    case 'L':
-    left();
+    case 'L':                     //Left
+    digitalWrite(driver1Pin, HIGH);  
+    digitalWrite(driver2Pin, LOW);
+    digitalWrite(driver3Pin, LOW);
+    digitalWrite(driver4Pin, HIGH);
+    delay(50); 
     break;
-    case 'R':
-    right();
+    case 'R':                     //Right
+    digitalWrite(driver1Pin, LOW);  
+    digitalWrite(driver2Pin, HIGH);
+    digitalWrite(driver3Pin, HIGH);
+    digitalWrite(driver4Pin, LOW);
+    delay(50); 
     break;
-    case 'Z':
-    zzz();
+    case 'Z':                     //Stop
+    digitalWrite(driver1Pin, LOW);
+    digitalWrite(driver2Pin, LOW);
+    digitalWrite(driver3Pin, LOW);
+    digitalWrite(driver4Pin, LOW);
+    delay(50);
     break;
     default:
     break;

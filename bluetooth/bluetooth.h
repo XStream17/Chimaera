@@ -30,7 +30,6 @@
  * 
  * 
  * B) AVAILABLE FUNCTION (FUNCTION PROTOCOL):
- *    void initialize(void);
  *    void send_char(char send_data);
  *    char receive_char(void);
  *    int receive_int(void);
@@ -51,7 +50,7 @@
  
  
  
- class uart
+ class bluetooth
 {
   /* Initialization for safety purpose
    * Value to be replaced when declared */
@@ -64,24 +63,14 @@
    ******************/
   /* Public function used for OBJECT DECLARATION */
   public:
-  uart(unsigned int BaudRateDivide100, char ending_command)
+  bluetooth(unsigned int BaudRateDivide100, char ending_command)
   {
     baud_rate = BaudRateDivide100;
     break_char = ending_command;
-  }
-  
-  
-  
-  /* Activate UART with the desire baud rate
-   * ***MUST be called before any data transmission */
-  void initialize()
-  {
     Serial.begin(baud_rate * 100);
   }
-
   
-  
-  
+   
    /***********
    * RECEIVE *
    ***********/
@@ -137,8 +126,6 @@
     return value;
   }
 
-  
-  
    /********
    * SEND *
    ********/
@@ -147,8 +134,6 @@
   {
     Serial.write(send_data);
   }
-  
-  
   
   /*********
    * DEBUG *

@@ -1,18 +1,19 @@
-#include "uart.h"
-#include "sg90.h"
-#include "motor.h"
+//<FIXME> add config.h and header.h
 
-uart bluetooth (96,'z');
+
+#include "bluetooth.h"
+#include "sg90.h"
+#include "l293d.h"
+
+bluetooth bluetooth (96,'z');
 claw claw1(11);
-motor m1(5,6,10,9);
+l293d m1(5,6,10,9);
  
 int angle = 0;   // servo position in degrees 
  
 void setup() 
 { 
-  bluetooth.initialize();
-  claw1.init();
-} 
+}
  
  
 void loop() 

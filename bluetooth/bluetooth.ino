@@ -1,8 +1,8 @@
-#include "uart.h"
-uart bluetooth (96,'z');
+#include "bluetooth.h"
+bluetooth bluetooth (96,'z');
 void setup() {
   // put your setup code here, to run once:
-   bluetooth.initialize();
+  
 }
 
 void loop() {
