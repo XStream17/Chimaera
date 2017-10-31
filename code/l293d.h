@@ -93,4 +93,31 @@ class l293d
     break;
   }
   }
+		void test(){
+			digitalWrite(driver1Pin, HIGH);  
+			digitalWrite(driver2Pin, LOW);
+			digitalWrite(driver3Pin, HIGH);
+			digitalWrite(driver4Pin, LOW);
+			delay(10000);
+			digitalWrite(driver1Pin, LOW);  
+			digitalWrite(driver2Pin, HIGH);
+			digitalWrite(driver3Pin, LOW);
+			digitalWrite(driver4Pin, HIGH);
+			delay(10000);
+			digitalWrite(driver1Pin, HIGH);  
+			digitalWrite(driver2Pin, LOW);
+			digitalWrite(driver3Pin, LOW);
+			digitalWrite(driver4Pin, HIGH);
+			delay(10000); 
+			digitalWrite(driver1Pin, LOW);  
+			digitalWrite(driver2Pin, HIGH);
+			digitalWrite(driver3Pin, HIGH);
+			digitalWrite(driver4Pin, LOW);
+			delay(10000); 
+			digitalWrite(driver1Pin, LOW);
+			digitalWrite(driver2Pin, LOW);
+			digitalWrite(driver3Pin, LOW);
+			digitalWrite(driver4Pin, LOW);
+			delay(10000);
+	  }
 };

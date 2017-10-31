@@ -69,4 +69,10 @@ class claw
       break;
     }
   }
+	  void test(){
+		  servo.write(180);                                   
+			 delay(50);
+		  servo.write(80);                
+			 delay(50);
+	  }
 };
