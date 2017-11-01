@@ -1,9 +1,4 @@
-//<FIXME> add config.h and header.h
-
-
-#include "bluetooth.h"
-#include "sg90.h"
-#include "l293d.h"
+#include "header.h"
 
 bluetooth *b1;
 claw *claw1;
