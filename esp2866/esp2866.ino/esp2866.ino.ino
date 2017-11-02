@@ -120,10 +120,6 @@ void setup ( void ) {
     server.send ( 200, "text/plain", "this works as well" );
   } );
   
- 
-  
-  Serial.println(server.args()); 
-  
   server.onNotFound ( handleNotFound );
   server.begin();
   Serial.println ( "HTTP server started" );
