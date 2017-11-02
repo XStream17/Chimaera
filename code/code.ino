@@ -1,6 +1,9 @@
+<<<<<<< HEAD
 //<FIXME> add config.h and header.h
 
 
+=======
+>>>>>>> c557828bced59eaa0cc7524471de557d10d29534
 #include "header.h"
 
 bluetooth *b1;
